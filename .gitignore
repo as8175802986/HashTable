@@ -348,3 +348,11 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+.vs
+bin
+obj
+Properties
+App.config
+HashTables.csproj
+HashTables.sln
+
