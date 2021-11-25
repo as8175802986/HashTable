@@ -25,7 +25,10 @@ namespace HashTables
             }
             Console.WriteLine("Displaying after add operation\n");
             hashtable.Display();
+            hashtable.Remove("avoidable");                                     //display after removing the key value pair with key avoidable
+            Console.WriteLine("Displaying after removing avoidable.\n");
             Console.WriteLine("----------------------------------------");
+            Console.ReadLine();
         }
         static void Main(string[] args)
         {
