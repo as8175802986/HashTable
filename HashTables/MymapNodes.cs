@@ -81,6 +81,35 @@ namespace HashTables
             return linkedList;                                                       //return the linkeddlist obj.
 
         }
+        public bool Exists(K key)                                       //check if a key exist in the array's linked list.
+        {
+            int position = GetArrayaposition(key);
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void Display()                         //simple display method that displays the linked lsit object variables inside of the item array.
+        {
+            foreach (var linkedList in items)
+            {
+                if (linkedList != null)
+                {
+                    foreach (var element in linkedList)
+                    {
+                        string res = element.ToString();
+                        if (res != null)
+                            Console.WriteLine(element.Key + " " + element.Value);
+                    }
+                }
+            }
+        }
     }
     
 }

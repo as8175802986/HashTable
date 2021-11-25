@@ -8,23 +8,31 @@ namespace HashTables
 {
     class Program
     {
+        public static void CountingWordFrequency(string sentence)            //this static method counts thr frquency of the words.
+        {
+            MymapNodes<string, int> hashtable = new MymapNodes<string, int>(10);      //declaring the key and value data types of the Mymapnodde class.
+            string[] words = sentence.Split();                //splitting the sentence otherwise it wont be possible to generate keys.
+            foreach (string word in words)
+            {
+                if (hashtable.Exists(word))                    //word is the "key"
+                {
+                    hashtable.Add(word, hashtable.Get(word) + 1);           //if it exists. get the value of the linkedlist object and invrement its value.
+                }
+                else
+                {
+                    hashtable.Add(word, 1);
+                }
+            }
+            Console.WriteLine("Displaying after add operation\n");
+            hashtable.Display();
+            Console.WriteLine("----------------------------------------");
+        }
         static void Main(string[] args)
         {
-            Console.WriteLine(" Welcome to Hash table");
-            MymapNodes<string, string> hash = new MymapNodes<string, string>(5);
-            hash.Add("0", "Arunesh");
-            hash.Add("1", "Harshit");
-            hash.Add("2", "Gaurav");
-            hash.Add("3", "Raj");
-            hash.Add("4", "Anshu");
-            hash.Add("5", "Rishu");
+            CountingWordFrequency("Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations");
 
-            string hash5 = hash.Get("5");
-            Console.WriteLine("5th index value:" + hash5);
 
-            string hash2 = hash.Get("2");
-            Console.WriteLine("2th index value:" + hash2);
-            Console.ReadLine();
+
         }
     }
 }
